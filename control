@@ -1,0 +1,9 @@
+Package: com.archergs.hidemecontactbanner
+Name: HideMeContactBanner
+Depends: mobilesubstrate
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: An awesome MobileSubstrate tweak!
+Maintainer: archergs
+Author: archergs
+Section: Tweaks
