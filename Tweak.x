@@ -40,6 +40,7 @@ static BOOL isEnabled = YES;
 %hook CNContactListViewController
 
 -(void)setShouldDisplayMeContactBanner:(BOOL)arg1 {
+	NSLog(@"running HideMeContactBanner");
 	if(isEnabled){
 		%orig(false);
 	} else {

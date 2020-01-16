@@ -1,1 +1,1 @@
-{ Filter = { Bundles = ( "com.apple.MobileAddressBook" ); }; }
+{ Filter = { Bundles = ( "com.apple.MobileAddressBook","com.apple.mobilephone" ); }; }
