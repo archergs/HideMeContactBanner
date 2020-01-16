@@ -8,7 +8,7 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
-			<string>Enable/Disable HideMeContactBanner</string>
+			<string>Enable/Disable Tweak</string>
 		</dict>
 		<dict>
 			<key>cell</key>
@@ -24,8 +24,22 @@
 			<key>PostNotification</key>
 			<string>com.archergs.hidemecontactbanner_prefs/settingschanged</string>
 		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>action</key>
+			<string>twitter</string>
+			<key>label</key>
+			<string>Follow me on Twitter</string>
+		</dict>	
+		<dict>
+			<key>cell</key>
+                        <string>PSGroupCell</string>
+                        <key>footerText</key>
+                        <string>You'll need to quit Contacts from the app switcher (if it's open) and wait ~5-10 seconds for the app to be cleared from memory. Thanks for using HideMeContactBanner!</string>
+		</dict>	
 	</array>
 	<key>title</key>
-	<string>hidemecontactbanner_prefs</string>
+	<string>HideMeContactBanner</string>
 </dict>
 </plist>

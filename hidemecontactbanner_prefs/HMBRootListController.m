@@ -10,4 +10,8 @@
 	return _specifiers;
 }
 
+-(void)twitter {
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"https://twitter.com/Archergs14"]];
+}
+
 @end
