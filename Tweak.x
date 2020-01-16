@@ -35,10 +35,34 @@ the generation of a class list and an automatic constructor.
 
 #import "tweak.h"
 
+static BOOL isEnabled = YES;
+
 %hook CNContactListViewController
 
 -(void)setShouldDisplayMeContactBanner:(BOOL)arg1 {
-	%orig(false);
+	if(isEnabled){
+		%orig(false);
+	} else {
+		%orig(true);
+	}
 }
 
 %end
+
+static void loadPrefs()
+{
+    NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/com.archergs.hidemecontactbanner_prefs.plist"];
+    if(prefs)
+    {
+        isEnabled = ( [prefs objectForKey:@"enabled"] ? [[prefs objectForKey:@"enabled"] boolValue] : isEnabled );
+        //SCtext = ( [prefs objectForKey:@"SCtext"] ? [prefs objectForKey:@"SCtext"] : SCtext );
+        //[SCtext retain];
+    }
+    //[prefs release];
+}
+
+%ctor 
+{
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)loadPrefs, CFSTR("com.archergs.hidemecontactbanner_prefs/settingschanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+    loadPrefs();
+}
